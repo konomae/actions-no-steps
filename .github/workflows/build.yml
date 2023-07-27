@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 1
     if: github.event_name == 'workflow_dispatch'
+    steps: []
     outputs:
       target_branch_name: ${{ github.head_ref || github.ref_name  }}
   build:
