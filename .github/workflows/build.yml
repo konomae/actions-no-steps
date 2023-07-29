@@ -2,6 +2,7 @@ name: build
 
 env:
   TARGET_BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+  JOB_CONDITION: github.event_name == 'workflow_dispatch'
 
 on:
   workflow_dispatch:
@@ -9,7 +10,7 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     timeout-minutes: 1
-    if: github.event_name == 'workflow_dispatch'
+    if: ${{ env.JOB_CONDITION }}
     steps:
       - run: '# check'
     outputs:
