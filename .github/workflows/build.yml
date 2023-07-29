@@ -1,4 +1,8 @@
 name: build
+
+env:
+  TARGET_BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+
 on:
   workflow_dispatch:
 jobs:
@@ -16,3 +20,4 @@ jobs:
       - setup
     steps:
       - run: echo ${{ needs.setup.outputs.target_branch_name }}
+      - run: echo "$TARGET_BRANCH_NAME"
