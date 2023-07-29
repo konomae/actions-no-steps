@@ -10,7 +10,8 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     timeout-minutes: 1
-    if: ${{ env.JOB_CONDITION }}
+    # if: ${{ env.JOB_CONDITION }} # cant't do this
+    if: github.event_name == 'workflow_dispatch'
     steps:
       - run: '' # pass
     outputs:
